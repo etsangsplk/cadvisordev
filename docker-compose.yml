@@ -1,0 +1,19 @@
+statsdtest:
+  container_name: cadvisorbuild
+  hostname: cadvisorbuild
+  ports:
+    - "8080:8080"
+  volumes:
+    - /Users/evanpease/Development/wavefrontcadvisor/share:/opt/share
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw
+    - /sys:/sys:ro
+    - /var/lib/docker/:/var/lib/docker:ro
+    - /cgroup:/cgroup:ro
+  image: ubuntu:14.04
+  labels:
+    com.wavefront.env: "dev"
+    com.wavefront.department: "eng"
+  expose:
+    - "8080"
+  command: /bin/sh -c "while true; do /bin/echo 'hello'; sleep 100; done;"

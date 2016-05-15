@@ -1,0 +1,5 @@
+share/bin
+share/pkg
+share/src
+.DS_Store
+**/.DS_Store
