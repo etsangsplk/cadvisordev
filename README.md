@@ -1,10 +1,10 @@
 ## Setting up Dev Environment
 
-1. Update the first volume in `docker-compose.yml` so that the `share` directory maps to `/opt/share` in the container. The run:
+1. Update the first volume in `docker-compose.yml` so that the `share` directory maps to `/opt/share` in the container. Then run:
 `docker-compose up -d`
 2. Connect to it `docker exec -it cadvisorbuild /bin/bash`
 3. `cd /opt/share`
-4. `bash devsetup.sh` - this will install all dependencies and download the cAdvisor code
+4. `bash devsetup.sh` - this will install all dependencies and download the cAdvisor code.
 
 ## Building
 1. `cd /opt/share/src/github.com/google/cadvisor/deploy`
@@ -32,8 +32,4 @@ docker run \
 --name=cadvisor \
 --volume=/cgroup:/cgroup:ro \
 wavefronthq/cadvisor --storage_driver=wavefront -storage_driver_host=172.17.0.3:2878 -storage_driver_db=$(hostname) --logtostderr=true
-'''
-
-2. See it:
-http://192.168.99.100:8081/
-http://192.168.99.100:8081/api/v1.3/docker
+```
