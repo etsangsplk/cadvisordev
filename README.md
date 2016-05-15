@@ -2,7 +2,7 @@
 
 1. Update the first volume in `docker-compose.yml` so that the `share` directory maps to `/opt/share` in the container. Then run:
 `docker-compose up -d`
-2. Connect to it `docker exec -it cadvisorbuild /bin/bash`
+2. Connect to it `docker exec -it cadvisordev /bin/bash`
 3. `cd /opt/share`
 4. `bash devsetup.sh` - this will install all dependencies and download the cAdvisor code.
 

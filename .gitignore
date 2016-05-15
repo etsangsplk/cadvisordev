@@ -3,3 +3,4 @@ share/pkg
 share/src
 .DS_Store
 **/.DS_Store
+share/go1.5.4.linux-amd64.tar.gz
