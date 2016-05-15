@@ -1,6 +1,7 @@
 ## Setting up Dev Environment
 
-1. Use the docker-compose file in this directory to start a development container
+1. Update the first volume in `docker-compose.yml` so that the `share` directory maps to `/opt/share` in the container. The run:
+`docker-compose up -d`
 2. Connect to it `docker exec -it cadvisorbuild /bin/bash`
 3. `cd /opt/share`
 4. `bash devsetup.sh` - this will install all dependencies and download the cAdvisor code
