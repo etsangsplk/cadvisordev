@@ -28,7 +28,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang/glog"
+	//"github.com/golang/glog"
 	info "github.com/google/cadvisor/info/v1"
 	"github.com/google/cadvisor/storage"
 )
@@ -120,7 +120,6 @@ func (driver *wavefrontStorage) AddStats(ref info.ContainerReference, stats *inf
 	if len(ref.Aliases) > 0 {
 		containerName = ref.Aliases[0]
 	}
-
 	//Only send to WF if the interval has passed for this container.
 	current := time.Now()
 	dur := current.Sub(driver.LastFlush[containerName])
@@ -132,7 +131,7 @@ func (driver *wavefrontStorage) AddStats(ref info.ContainerReference, stats *inf
 		//it's not time to flush, do nothing
 		return nil
 	}
-	glog.Info("Flushing container stats for " + containerName)
+	//glog.Info("Flushing container stats for " + containerName)
 	driver.LastFlush[containerName] = time.Now()
 
 	//Get current timestamp
@@ -142,6 +141,9 @@ func (driver *wavefrontStorage) AddStats(ref info.ContainerReference, stats *inf
 
 	//See if additional host tags were passed
 	addTags := driver.WfAddTags
+
+	//Image
+
 
 	//Additional tags (namespace and labels)
 	appendTags := ""
